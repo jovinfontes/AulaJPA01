@@ -1,0 +1,5 @@
+br/com/jpa/projectjpa/entities/Funcionario.class
+br/com/jpa/projectjpa/entities/Departmento.class
+br/com/jpa/projectjpa/factory/Factory.class
+br/com/jpa/projectjpa/entities/Produto.class
+br/com/jpa/projectjpa/entities/Categoria.class
