@@ -7,7 +7,6 @@ package br.com.jpa.projectjpa.entities;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -49,6 +48,11 @@ public class Categoria implements Serializable {
 
     public Set<Produto> getProdutos() {
         return produtos;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
 }

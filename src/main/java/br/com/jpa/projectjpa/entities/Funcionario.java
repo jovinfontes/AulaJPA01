@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -18,13 +19,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_funcionario")
 public class Funcionario implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String cpf;
     private String matricula;
+
+    @ManyToOne
+    private Departmento departamento = new Departmento();
 
     public Long getId() {
         return id;
@@ -57,5 +61,22 @@ public class Funcionario implements Serializable {
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
+
+    
+
+    public Departmento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departmento departamento) {
+        this.departamento = departamento;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    
     
 }

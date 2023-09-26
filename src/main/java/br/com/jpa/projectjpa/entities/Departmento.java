@@ -27,7 +27,7 @@ public class Departmento implements Serializable {
     private Long id;
     private String name;
     
-    @OneToMany
+    @OneToMany(mappedBy = "departamento")
     private List<Funcionario> funcionarios = new ArrayList<>();
 
     public Long getId() {
