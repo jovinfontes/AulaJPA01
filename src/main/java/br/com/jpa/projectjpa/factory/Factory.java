@@ -6,6 +6,9 @@ package br.com.jpa.projectjpa.factory;
 
 import br.com.jpa.projectjpa.entities.Funcionario;
 import br.com.jpa.projectjpa.entities.Departmento;
+import br.com.jpa.projectjpa.entities.Pessoa;
+import br.com.jpa.projectjpa.entities.PessoaFisica;
+import br.com.jpa.projectjpa.entities.PessoaJuridica;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -194,7 +197,7 @@ public class Factory {
         manager.getTransaction().commit();
         manager.close();*/
         
-        manager.getTransaction().begin();
+        /*manager.getTransaction().begin();
         
         //Manipulação de funcionários
         Long id = 1L;
@@ -218,6 +221,15 @@ public class Factory {
         
         Query query5 = manager.createQuery("SELECT d FROM Departmento d JOIN FETCH d.funcionarios WHERE d IN d");
         List<Departmento> list4 = query5.getResultList();
+        
+        //pegando um departamento com os seus funcionarios pela id
+        Query query6 = manager.createQuery("SELECT d FROM Departmento d JOIN FETCH d.funcionarios WHERE d.id = 2");
+        Departmento dep = (Departmento) query6.getSingleResult();
+        //Ou usando o setParameter
+        Long id = 2L
+        Query query7 = manager.createQuery("SELECT d FROM Departmento d JOIN FETCH d.funcionarios WHERE d.id = :id");
+        query7.setParameter("id", id);
+        Departmento dep1 = (Departmento) query7.getSingleResult();
         
        
         manager.getTransaction().commit();
@@ -249,7 +261,7 @@ public class Factory {
         }*/
         
         
-        System.out.println();
+        /*System.out.println();
         System.out.println();
         System.out.println("TODOS OS DEPARTAMENTOS");
         for (Departmento d: list3){
@@ -263,6 +275,42 @@ public class Factory {
             System.out.println();
         }
         
+        System.out.println();
+        System.out.println();
+        System.out.println("UM DEPARTAMENTO");
+        System.out.println();
+        System.out.println("Nome departamento: " + dep.getName());
+        for (Funcionario f: dep.getFuncionarios()){
+            System.out.println("Nome funcionários: " + f.getName());
+        }*/
+        
+        //Aqui observem no banco de dados que gera um tabelão com todas as colunas,
+        //Mas a desvantagem disso é que muitas colunas ficaram nulas
+        //Executem o codigo e analisem a tabela pessoa
+        Pessoa p = new Pessoa();
+        p.setNome("A Pessoa");
+        p.setTipo("P");
+        
+        PessoaFisica pf = new PessoaFisica();
+        pf.setNome("Ciclano de Fulano de Tal");
+        pf.setCpf("001.002.003-00");
+        pf.setTipo("F");
+        
+        PessoaJuridica pj = new PessoaJuridica();
+        pj.setNome("Empresa Tal");
+        pj.setCnpj("00.0001.0003/0001-00");
+        pj.setTipo("J");
+        
+        
+        
+        manager.getTransaction().begin();
+        
+        manager.persist(p);
+        manager.persist(pf);
+        manager.persist(pj);
+        
+        manager.getTransaction().commit();
+        manager.close();
     }
 
 }

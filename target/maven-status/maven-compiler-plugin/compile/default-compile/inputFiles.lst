@@ -1,5 +1,8 @@
 /Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Funcionario.java
+/Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/PessoaJuridica.java
+/Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/PessoaFisica.java
 /Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Categoria.java
 /Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/factory/Factory.java
 /Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Produto.java
 /Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Departmento.java
+/Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Pessoa.java
