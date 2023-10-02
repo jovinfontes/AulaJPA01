@@ -6,3 +6,5 @@
 /Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Produto.java
 /Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Departmento.java
 /Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Pessoa.java
+/Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/factory/GenerateTables.java
+/Users/cfontes/NetBeansProjects/ProjectJPA/src/main/java/br/com/jpa/projectjpa/entities/Endereco.java

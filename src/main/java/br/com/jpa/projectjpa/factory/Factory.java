@@ -4,16 +4,14 @@
  */
 package br.com.jpa.projectjpa.factory;
 
-import br.com.jpa.projectjpa.entities.Funcionario;
 import br.com.jpa.projectjpa.entities.Departmento;
-import br.com.jpa.projectjpa.entities.Pessoa;
+import br.com.jpa.projectjpa.entities.Endereco;
+import br.com.jpa.projectjpa.entities.Funcionario;
 import br.com.jpa.projectjpa.entities.PessoaFisica;
 import br.com.jpa.projectjpa.entities.PessoaJuridica;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 /**
  *
@@ -287,7 +285,8 @@ public class Factory {
         //Aqui observem no banco de dados que gera um tabelão com todas as colunas,
         //Mas a desvantagem disso é que muitas colunas ficaram nulas
         //Executem o codigo e analisem a tabela pessoa
-        Pessoa p = new Pessoa();
+        
+        /*Pessoa p = new Pessoa();
         p.setNome("A Pessoa");
         p.setTipo("P");
         
@@ -310,7 +309,97 @@ public class Factory {
         manager.persist(pj);
         
         manager.getTransaction().commit();
+        manager.close();*/
+        
+        
+        /*PessoaFisica pf = new PessoaFisica();
+        PessoaJuridica pj = new PessoaJuridica();
+        
+        pf.setNome("Fulano Fisica");
+        pf.setCpf("000.001.002-01");
+        
+        pj.setNome("Ciclano Juridico");
+        pj.setCnpj("00.001.002/0001-01");
+        
+        
+        
+        
+        manager.getTransaction().begin();
+        
+        manager.persist(pf);
+        manager.persist(pj);
+        
+        manager.getTransaction().commit();
+        manager.close();*/
+        
+        
+        Endereco enderecoF = new Endereco();
+        enderecoF.setLogradouro("Rua das Tapiocas");
+        enderecoF.setNumero(24);
+        enderecoF.setBairro("Bairro das Tapiocas");
+        enderecoF.setCep("58.900-000");
+        enderecoF.setUf("PB");
+        
+        Endereco enderecoF2 = new Endereco();
+        enderecoF2.setLogradouro("Rua das Tapiocas 2");
+        enderecoF2.setNumero(25);
+        enderecoF2.setBairro("Bairro das Tapiocas 2");
+        enderecoF2.setCep("58.900-000");
+        enderecoF2.setUf("PB");
+        
+        Endereco enderecoF3 = new Endereco();
+        enderecoF3.setLogradouro("Rua das Tapiocas 3");
+        enderecoF3.setNumero(26);
+        enderecoF3.setBairro("Bairro das Tapiocas 3");
+        enderecoF3.setCep("58.900-000");
+        enderecoF3.setUf("PB");
+        
+        
+        Departmento d = new Departmento();
+        d.setName("Financeiro");
+        Departmento d2 = new Departmento();
+        d2.setName("Recursos Humanos");
+        
+        Funcionario f = new Funcionario();
+        f.setName("Fulano de Tal");
+        f.setMatricula("123456-0");
+        f.setCpf("001.002.003-00");
+        d.getFuncionarios().add(f);
+        f.getEnderecos().add(enderecoF);
+        f.setDepartamento(d);
+        
+        Funcionario f2 = new Funcionario();
+        f2.setName("Fulano de Tal");
+        f2.setMatricula("123456-0");
+        f2.setCpf("001.002.003-00");
+        d.getFuncionarios().add(f2);
+        f2.getEnderecos().add(enderecoF2);
+        f2.setDepartamento(d2);
+        
+        Funcionario f3 = new Funcionario();
+        f3.setName("Fulano de Tal");
+        f3.setMatricula("123456-0");
+        f3.setCpf("001.002.003-00");
+        d2.getFuncionarios().add(f3);
+        f3.getEnderecos().add(enderecoF3);
+        f3.setDepartamento(d2);
+       
+        manager.getTransaction().begin();
+        
+        manager.persist(f);
+        manager.persist(f2);
+        manager.persist(f3);
+        
+        manager.persist(d);
+        manager.persist(d2);
+        
+        manager.getTransaction().commit();
         manager.close();
+        
+        
+        
+        
+        
     }
 
 }

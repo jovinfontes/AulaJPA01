@@ -4,7 +4,6 @@
  */
 package br.com.jpa.projectjpa.entities;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -12,7 +11,6 @@ import javax.persistence.Entity;
  * @author cfontes
  */
 @Entity
-@DiscriminatorValue("F")
 public class PessoaFisica extends Pessoa {
     
     private String cpf;

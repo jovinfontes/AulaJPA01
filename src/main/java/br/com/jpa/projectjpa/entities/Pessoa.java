@@ -5,10 +5,6 @@
 package br.com.jpa.projectjpa.entities;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,17 +17,19 @@ import javax.persistence.InheritanceType;
  * @author cfontes
  */
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo", length = 1, discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("P")
-public class Pessoa implements Serializable {
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@DiscriminatorColumn(name = "tipo", length = 1, discriminatorType = DiscriminatorType.STRING)
+//@DiscriminatorValue("P")
+public abstract class Pessoa implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long idPessoa;
     private String nome;
-    @Column(insertable=false, updatable = false)
-    private String tipo;
+    /*@Column(insertable=false, updatable = false)
+    private String tipo;*/
 
     public Long getIdPessoa() {
         return idPessoa;
@@ -49,13 +47,13 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public String getTipo() {
+    /*public String getTipo() {
         return tipo;
     }
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
+    }*/
     
     
     

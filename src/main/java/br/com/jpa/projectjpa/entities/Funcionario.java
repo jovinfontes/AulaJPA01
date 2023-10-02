@@ -5,6 +5,11 @@
 package br.com.jpa.projectjpa.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +34,10 @@ public class Funcionario implements Serializable {
 
     @ManyToOne
     private Departmento departamento = new Departmento();
+    
+    @ElementCollection
+    @CollectionTable(name = "tabela_enderecos")
+    List<Endereco> enderecos = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -62,7 +71,9 @@ public class Funcionario implements Serializable {
         this.matricula = matricula;
     }
 
-    
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
 
     public Departmento getDepartamento() {
         return departamento;

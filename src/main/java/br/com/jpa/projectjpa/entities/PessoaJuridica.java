@@ -4,15 +4,12 @@
  */
 package br.com.jpa.projectjpa.entities;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-/**
- *
+/*
  * @author cfontes
  */
 @Entity
-@DiscriminatorValue("J")
 public class PessoaJuridica extends Pessoa {
     
     private String cnpj;
