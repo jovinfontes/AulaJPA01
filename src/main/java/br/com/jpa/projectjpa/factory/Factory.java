@@ -4,11 +4,13 @@
  */
 package br.com.jpa.projectjpa.factory;
 
+import br.com.jpa.projectjpa.entities.Categoria;
 import br.com.jpa.projectjpa.entities.Departmento;
 import br.com.jpa.projectjpa.entities.Endereco;
 import br.com.jpa.projectjpa.entities.Funcionario;
 import br.com.jpa.projectjpa.entities.PessoaFisica;
 import br.com.jpa.projectjpa.entities.PessoaJuridica;
+import br.com.jpa.projectjpa.entities.Produto;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -333,7 +335,7 @@ public class Factory {
         manager.close();*/
         
         
-        Endereco enderecoF = new Endereco();
+        /*Endereco enderecoF = new Endereco();
         enderecoF.setLogradouro("Rua das Tapiocas");
         enderecoF.setNumero(24);
         enderecoF.setBairro("Bairro das Tapiocas");
@@ -392,6 +394,65 @@ public class Factory {
         
         manager.persist(d);
         manager.persist(d2);
+        
+        manager.getTransaction().commit();
+        manager.close();*/
+        
+        
+        manager.getTransaction().begin();
+        //deleção de produto e categoria
+        /*var p = new Produto();
+        p = manager.find(Produto.class, 1L);
+        var c = new Categoria();
+        c = manager.find(Categoria.class, 1L);
+        
+        if (c == null) {
+            System.out.println();
+            System.out.println("Objeto não encontrado");
+        } else {
+            manager.remove(c);
+            System.out.println();
+            System.out.println("Objeto removido com sucesso");
+        }*/
+        
+        /*Categoria c = new Categoria();
+        c.setName("Jogos");
+        Produto p = new Produto();
+        p.setName("Notbook Gamer RTX 4060");
+        p.setDescription("Bixinnn");
+        p.setPrice(2500.0);
+        
+        p.getCategorias().add(c);
+        c.getProdutos().add(p);
+        
+        manager.persist(c);
+        manager.persist(p);*/
+        
+        //atualizando um funcionario
+        
+        /*Funcionario f = manager.find(Funcionario.class, 1L);
+        
+        if (f == null) {
+            System.out.println();
+            System.out.println("Objeto não encontrado");
+        }else {
+            System.out.println();
+            f.setName("Ciclano da Silva");
+            manager.merge(f);
+            System.out.println("Objeto atualizado com sucesso");
+            System.out.println("NOVO NOME DO OBJETO COM O ID: "+ f.getId() +" " + f.getName());
+        }*/
+        
+        var d = manager.find(Departmento.class, 1L);
+        
+        if (d == null) {
+            System.out.println();
+            System.out.println("Objeto não encontrado");
+        }else {
+            System.out.println();
+            manager.remove(d);
+            System.out.println("Objeto removido com sucesso");
+        }
         
         manager.getTransaction().commit();
         manager.close();
